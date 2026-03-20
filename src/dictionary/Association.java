@@ -1,11 +1,8 @@
 package dictionary;
 
 /**
- * Represents a key-value association (pair).
- * Used to store English-Spanish word pairs in the dictionary.
- *
- * @param <K> the type of the key (English word)
- * @param <V> the type of the value (Spanish translation)
+ * @param <K>
+ * @param <V>
  */
 public class Association<K extends Comparable<K>, V> implements Comparable<Association<K, V>> {
 
@@ -13,40 +10,26 @@ public class Association<K extends Comparable<K>, V> implements Comparable<Assoc
     private V value;
 
     /**
-     * Creates a new Association with the given key and value.
-     *
-     * @param key   the key (English word)
-     * @param value the associated value (Spanish word)
+     * @param key
+     * @param value
      */
     public Association(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
-    /**
-     * Returns the key of this association.
-     */
     public K getKey() {
         return key;
     }
 
-    /**
-     * Returns the value of this association.
-     */
     public V getValue() {
         return value;
     }
 
-    /**
-     * Sets the value of this association.
-     */
     public void setValue(V value) {
         this.value = value;
     }
 
-    /**
-     * Compares this association to another based on their keys.
-     */
     @Override
     public int compareTo(Association<K, V> other) {
         return this.key.compareTo(other.key);
