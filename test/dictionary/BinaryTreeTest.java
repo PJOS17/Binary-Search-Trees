@@ -2,10 +2,6 @@ package dictionary;
 
 import java.util.List;
 
-/**
- * Pruebas unitarias para BinaryTree e Association.
- * No requiere JUnit — corre con: java -cp out dictionary.BinaryTreeTest
- */
 public class BinaryTreeTest {
 
     private static int passed = 0;
