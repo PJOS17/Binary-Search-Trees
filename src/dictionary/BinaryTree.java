@@ -4,20 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generic Binary Search Tree (BST) implementation.
- *
- * Reference for BST structure and algorithms:
- * Bailey, D. A. (2003). Java Structures: Data Structures in Java for the Principled Programmer.
- * McGraw-Hill. Chapter 12: Binary Trees.
- * Also consulted: https://en.wikipedia.org/wiki/Binary_search_tree
- *
- * @param <E> the type of elements stored, must be Comparable
+ * 
+ * @param <E>
  */
 public class BinaryTree<E extends Comparable<E>> {
-
-    // -------------------------------------------------------------------------
-    // Inner Node class
-    // -------------------------------------------------------------------------
 
     private static class Node<E> {
         E data;
@@ -31,73 +21,47 @@ public class BinaryTree<E extends Comparable<E>> {
         }
     }
 
-    // -------------------------------------------------------------------------
-    // Fields
-    // -------------------------------------------------------------------------
-
     private Node<E> root;
     private int size;
-
-    // -------------------------------------------------------------------------
-    // Constructor
-    // -------------------------------------------------------------------------
 
     public BinaryTree() {
         root = null;
         size = 0;
     }
 
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
-
     /**
-     * Inserts a new element into the BST.
-     * Duplicate keys are ignored (the existing entry is kept).
-     *
-     * @param element the element to insert
+     * 
+     * @param element
      */
     public void insert(E element) {
         root = insertRecursive(root, element);
     }
 
     /**
-     * Searches for an element in the BST.
-     *
-     * @param element the element to search for
-     * @return the matching element if found, or null if not present
+     * @param element
+     * @return
      */
     public E search(E element) {
         return searchRecursive(root, element);
     }
 
     /**
-     * Returns true if the BST contains the given element.
-     *
      * @param element the element to look for
      */
     public boolean contains(E element) {
         return search(element) != null;
     }
 
-    /**
-     * Returns the number of elements in the BST.
-     */
     public int size() {
         return size;
     }
 
-    /**
-     * Returns true if the BST is empty.
-     */
     public boolean isEmpty() {
         return size == 0;
     }
 
     /**
-     * Performs an in-order traversal (left → root → right) and returns
-     * the elements as an ordered list.
-     *
+     * 
      * @return list of elements in ascending order
      */
     public List<E> inOrder() {
@@ -105,10 +69,6 @@ public class BinaryTree<E extends Comparable<E>> {
         inOrderRecursive(root, result);
         return result;
     }
-
-    // -------------------------------------------------------------------------
-    // Private helpers
-    // -------------------------------------------------------------------------
 
     private Node<E> insertRecursive(Node<E> node, E element) {
         if (node == null) {
